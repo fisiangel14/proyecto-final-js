@@ -12,7 +12,7 @@ const monstrarMenu = () => {
 }
 
 const pedirProducto = cod => {
-    if(!cod) return "Ingrese un codigo valido!"
+    if(!cod || typeof cod !== "string" ) return "Ingrese un codigo valido!"
 
     const productoEncontrado = productos.find(producto => producto.codigo === cod)
     
