@@ -4,7 +4,8 @@ const usuario = {
     deuda: 0
 }
 
-const pedido = []
+let pedido = []
+let costoPedido = 0
 
 const monstrarMenu = () => {
     console.log("CODIGO - NOMBRE DEL PRODUCTO - COSTO")
@@ -24,3 +25,21 @@ const pedirProducto = cod => {
 }
 
 const verPedido = () => pedido
+
+const calcularCosto = () =>{
+    let costoU = 0
+    for(producto of pedido){
+        costoU += producto.costo
+    }
+    return costoPedido=costoU
+}
+
+const finalizarPedido = () => {
+    calcularCosto()
+    usuario.deuda = costoPedido
+
+    pedido = []
+    costoPedido = 0
+
+    return `${usuario.nombre}, debes pagar ${usuario.deuda} dolares`
+}
