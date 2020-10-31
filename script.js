@@ -1,3 +1,6 @@
+/**
+ *  Logica para crear pedidos y cobrar los pedidos del usuario
+ */
 const usuario = {
     nombre: "Angel",
     edad: 26,
@@ -6,6 +9,7 @@ const usuario = {
 
 let pedido = []
 let costoPedido = 0
+let ventasTotales = 0
 
 const monstrarMenu = () => {
     console.log("CODIGO - NOMBRE DEL PRODUCTO - COSTO")
@@ -37,7 +41,7 @@ const calcularCosto = () =>{
 const finalizarPedido = () => {
     calcularCosto()
     usuario.deuda = costoPedido
-
+    ventasTotales += usuario.deuda
     pedido = []
     costoPedido = 0
 
@@ -51,7 +55,10 @@ const pagarPedido = monto => {
         usuario.deuda = 0
         return "tu pedido ha sido pagado"
     }else{
+        console.log(`Tu pedido ha sido pagado y tu cambio es ${monto - usuario.deuda}`)
         usuario.deuda = 0   //{}
-        return `Tu pedido ha sido pagado y tu cambio es ${monto - usuario.deuda}`
+        return "Deuda pagada"
     }
 }
+
+const reporteTotal = () => console.log(`Las ventas totales son: ${ventasTotales} dolares`)
