@@ -20,5 +20,7 @@ const pedirProducto = cod => {
 
     pedido.push(productoEncontrado)
     console.log("Su producto fue agregado correctamente")
-    return pedido
+    return verPedido()
 }
+
+const verPedido = () => pedido
